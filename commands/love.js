@@ -1,14 +1,23 @@
 module.exports.run = function(bot, message, args) {
     let blank=":black_heart:", heart=":heart:", fill=":black_heart:";
     let n = 9;
-    let caunoi = "Love you more than I can say \:heart: \n";
+    let caunoi = "";
     
     if (args.length > 0)
+    {
         n = parseInt(args[0]);
-        else n = parseInt(9);
+        caunoi = "Love you more than I can say \:heart: \n" + draw_heart_coor(n, blank=":black_heart:", heart=":heart:", fill=":black_heart:");
+    }else {
+        n = parseInt(9);
+        caunoi = "Are you ready for loveeee \:kissing_heart: \n" + 
+        ":heart: :yellow_heart: :green_heart: :blue_heart: :purple_heart: \n" +
+        ":yellow_heart: :green_heart: :blue_heart: :purple_heart: :heart: \n" +
+        ":green_heart: :blue_heart: :purple_heart: :heart: :yellow_heart: \n" +
+        ":blue_heart: :purple_heart: :heart: :yellow_heart: :green_heart: \n" +
+        ":purple_heart: :heart: :yellow_heart: :green_heart: :blue_heart: \n";
+    } 
     if (n <= 4 || n >= 13) return message.channel.send("Bạn nhập một số từ 5 đến 12 thôi !");
-    let hinhve = draw_heart_coor(n, blank=":black_heart:", heart=":heart:", fill=":black_heart:");
-    message.channel.send(caunoi + hinhve);
+    message.channel.send(caunoi);
 }
 module.exports.help = {
     name : "love"
