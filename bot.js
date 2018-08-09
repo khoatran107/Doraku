@@ -2,6 +2,7 @@ const botSettings = require("./botsettings.json");
 const Discord = require("discord.js");
 const fs = require("fs");
 const bad_words_file = require('./badwords.json');
+const hit = require('./hitdrama');
 let bad_words = bad_words_file.bad_words;
 const prefix = botSettings.prefix;
 
@@ -59,6 +60,7 @@ bot.on("message", async message => {
     }
     
     /////////////////////////////////////////////////
+    hit.run(bot, message, args);
     if (!command.startsWith(prefix)) return;
     let cmd = bot.commands.get(command.slice(prefix.length));
     if (cmd) cmd.run(bot, message, args);

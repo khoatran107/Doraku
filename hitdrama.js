@@ -1,4 +1,4 @@
-module.exports.run = function() {
+module.exports.run = function(bot, message, args) {
     if (message.content.toLowerCase().includes('drama'))
         message.channel.send(`Hít hà, hít hà \:joy:`);
     if (message.content.toLowerCase().includes('hóng')) 
