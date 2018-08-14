@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 module.exports.run = function(bot, message, args) {
     let newms = new Discord.RichEmbed()
         .setColor("#3d87ff")
