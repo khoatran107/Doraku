@@ -7,6 +7,9 @@ module.exports.run = function(bot, message, args) {
         .addField("prefix : ", `Cho bạn biết prefix của Conan Bot`)
         .addField("help : ", `Yêu cầu trợ giúp về bot này :grin:` )
         .addField("say : ", `Yêu cầu bot nói điều gì đó ` )
+        .addField("luom : ", `Dùng để lườm ai đó :"> `)
+        .addField("cuoi : ", `Dùng để cười :joy:`)
+        .addField("love : ", `Dùng để thể hiện tình cảm của bạn với người khác :)`)
         .addField("Một khi bạn nói tục bạn sẽ bị mách với các mod :grin: ", `Hết`);
     
     if (args.length>0){
