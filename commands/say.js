@@ -1,4 +1,4 @@
-const prefix = require(../botsettings.json);
+const prefix = require('./../botsettings.json');
 
 const Discord = require('discord.js');
 module.exports.run = function (bot, message, args) {
