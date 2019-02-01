@@ -1,22 +1,30 @@
 const Discord = require('discord.js');
 module.exports.run = function(bot, message, args) {
-    let newms = new Discord.RichEmbed()
-        .setColor("#3d87ff")
-        .addField("userinfo : ", `Hiện thông tin người dùng của bạn, nếu tag ai vào thì sẽ hiện thông tin người đó`)
-        .addField("serverinfo : ", `Hiện thông tin của server hiện tại`)
-        .addField("ping : ", `Chỉ là chơi`)
-        .addField("prefix : ", `Cho bạn biết prefix của Conan Bot`)
-        .addField("help : ", `Yêu cầu trợ giúp về bot này :grin:` )
-        .addField("say : ", `Yêu cầu bot nói điều gì đó ` )
-        .addField("luom : ", `Dùng để lườm ai đó :"> `)
-        .addField("cuoi : ", `Dùng để cười :joy:`)
-        .addField("love : ", `Dùng để thể hiện tình cảm của bạn với người khác :)`)
-        .addField("Một khi bạn nói tục bạn sẽ bị mách với các mod :grin: ", `Hết`);
-    
-    if (args.length>0){
-        newms.addField("Bạn đang dùng command này sai đấy nhé !!");
-    }
-    message.channel.sendEmbed(newms);
+     if(!args[0]){
+        let help = new Discord.RichEmbed()
+          .setAuthor('Danh sách các câu lệnh')
+          .setThumbnail(bot.user.avatarURL)
+          .setColor('#0066ff')
+          .addField('Info',`${bot.commands.filter(cmd => cmd.help.category === 'Info').map(cmd => `\`${cmd.help.name}\``).join(" ")} `)
+          .addField('Fun',`${bot.commands.filter(cmd => cmd.help.category === 'Fun').map(cmd => `\`${cmd.help.name}\``).join(" ")} `)
+          .setFooter('Để kiểm tra công dụng của từng câu lệnh, sử dụng do.help <tên câu lệnh>')
+        message.channel.send(help);
+     } else {
+         try {
+        let command = bot.commands.filter(cmd => cmd.help.name === args[0]).map(cmd => `${cmd.help.name}`);
+        let description = bot.commands.filter(cmd => cmd.help.name === args[0]).map(cmd => `\`${cmd.help.description}\``);
+        let usage = bot.commands.filter(cmd => cmd.help.name === args[0]).map(cmd => `\`${cmd.help.usage}\``);
+        let help = new Discord.RichEmbed()
+          .setTitle(`Câu lệnh: ${command}`)
+          .setColor('#0066ff')
+          .setFooter('Không bao gồm các kí tự [] có trong usage')
+          .addField(`Tác dụng: `,description)
+          .addField(`Cách sử dụng `,usage)
+        message.channel.send(help);
+        } catch(e){
+            message.channel.send('Không tìm thấy câu lệnh!');
+        }
+     }
 }
 module.exports.help = {
     name : "help"
