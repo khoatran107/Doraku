@@ -20,7 +20,10 @@ module.exports.run = function(bot, message, args) {
     message.channel.send(caunoi);
 }
 module.exports.help = {
-    name : "love"
+    name : "love",
+    category: 'Fun',
+    description: 'Dùng để thể hiện tình cảm của bạn với người khác :)',
+    usage: 'do.love'
 }
 function draw_heart_coor(n, blank=":black_heart:", heart=":heart:", fill=":black_heart:")
 {
@@ -119,4 +122,3 @@ function draw_heart_coor(n, blank=":black_heart:", heart=":heart:", fill=":black
     }
     return res;
 }  // 5 <= n <= 12
-	
