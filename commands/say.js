@@ -8,5 +8,8 @@ module.exports.run = function (bot, message, args) {
     message.channel.sendEmbed(says);
 }
 module.exports.help = {
-    name: "say"
+    name: "say",
+    category: 'Fun',
+    description: 'Yêu cầu bot nói điều gì đó',
+    usage: 'do.say'
 }
