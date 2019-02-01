@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "discord.js": "^11.3.2",
-    "kitsu.js": "6.4.1"
+    "kitsu": "^6.4.1"
   },
   "repository": {
     "type": "git",
