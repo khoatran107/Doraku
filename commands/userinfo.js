@@ -36,7 +36,10 @@ module.exports.run = function(bot, message, args) {
     }
 }
 module.exports.help = {
-    name : "userinfo"
+    name : "userinfo",
+    category: 'Info',
+    description: 'Hiện thông tin người dùng của bạn, nếu tag ai vào thì sẽ hiện thông tin người đó',
+    usage: 'do.userinfo'
 }
 function wrongCmd() {
     let noti = new Discord.RichEmbed()
