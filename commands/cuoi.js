@@ -20,5 +20,8 @@ module.exports.run = async function(bot, message, args) {
     message.channel.send(mynewmsg);
 }
 module.exports.help = {
-    name : "cuoi"
+    name : "cuoi",
+    category: 'Fun',
+    description: 'Dùng để cười :joy:',
+    usage: 'do.cuoi'
 }

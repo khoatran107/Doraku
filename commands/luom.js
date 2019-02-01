@@ -46,6 +46,9 @@ module.exports.run =  async function(bot, message, args) {
     message.channel.send(caunoi + mynewmsg);
 }
 module.exports.help = {
-    name : "luom"
+    name : "luom",
+    category: 'Fun',
+    description: `Dùng để lườm ai đó :">`,
+    usage: 'do.luom'
 }
 
