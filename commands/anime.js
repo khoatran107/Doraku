@@ -9,7 +9,9 @@ module.exports.run = async(bot,message,args) =>{
 //ID channel anime và bot-playground
       if(message.channel.id === '456859356382625793' || message.channel.id === '441184600786731008' ){
 	        anime(bot,message,args);
-      } else return message.channel.send('Bạn chỉ có thể sử dụng câu lệnh này ở <#456859356382625793> và <#441184600786731008>');
+      } else return message.channel.send('Bạn chỉ có thể sử dụng câu lệnh này ở <#456859356382625793> và <#441184600786731008>').then(msg =>{
+		        msg.delete(3000);
+	  });
     } else anime(bot,message,args);
 }
 async function anime(bot,message,args){
