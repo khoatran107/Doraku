@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 //npm i kitsu.js
-const Kitsu = require('kitsu.js');
+const Kitsu = require('kitsu');
 const kitsu = new Kitsu();
 
 module.exports.run = async(bot,message,args) =>{
@@ -39,7 +39,7 @@ async function manga(bot,message,args){
 				.addField(':star: Số điểm đánh giá: ',`**${manga.averageRating ? manga.averageRating : 'N/A'}/100**`,true)
 				.addField(':trophy: Xếp hạng: ',`**TOP ${manga.ratingRank ? manga.ratingRank : 'N/A'}**`,true)
 			message.channel.send(Membed);
-		})
+		});
 		.catch((err)=> {
 			console.log(err);
 			message.channel.send('Không tìm thấy manga! '); 
