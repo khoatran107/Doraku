@@ -1,11 +1,13 @@
 const Discord = require('discord.js');
 //npm i node-osu
 const osu = require('node-osu');
+require("dotenv/config");
+const osu_api = process.env.osu_api_key;
 // Khoa vào link này để lấy osu api nhé: https://osu.ppy.sh/p/api
-const api = new osu.Api('sau đó cho osu api vào đây',{
+const api = new osu.Api(osu_api,{
 	  notFoundAsError: true,
     completeScores: false 
-})
+});
 
 module.exports.run = async(bot,message,args) =>{
   if(message.guild.id === '420246254254030856'){
@@ -22,7 +24,7 @@ async function osu(bot,message,args) {
 
 	if(!args[0]) return message.channel.send('Bạn phải nhập tên người chơi đã :3').then(msg =>{
 		msg.delete(3000);
-	})
+	});
 
 	api.getUser({u: username}).then(user =>{
 		let flag = String(user.country).toLowerCase();
@@ -37,9 +39,9 @@ async function osu(bot,message,args) {
 			.addField(`:large_blue_diamond: Quốc gia: `,`:flag_${flag}:`,true)
 			.addField(`:large_blue_diamond: Rank :flag_${flag}: :`, `${user.pp.countryRank}`,true)
 			.addField(':large_blue_diamond: Số lần chơi: ',user.counts.plays,true)
-			.addField(':large_blue_diamond: Độ chính xác: ',user.accuracyFormatted,true)
+			.addField(':large_blue_diamond: Độ chính xác: ',user.accuracyFormatted,true);
 		message.channel.send(OsuEmbed);
-	})
+	});
 }
 module.exports.help ={
 	name: 'osu',
