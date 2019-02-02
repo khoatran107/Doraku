@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 //npm i node-osu
-const osu = require('node-osu');
+const node_osu = require('node-osu');
 require("dotenv/config");
 const osu_api = process.env.osu_api_key;
 // Khoa vào link này để lấy osu api nhé: https://osu.ppy.sh/p/api
-const api = new osu.Api(osu_api,{
+const api = new node_osu.Api(osu_api,{
 	  notFoundAsError: true,
     completeScores: false 
 });
