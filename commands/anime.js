@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 //npm i kitsu.js
-const Kitsu = require('node-kitsu');
-const kitsu = new Kitsu();
+const kitsu = require('node-kitsu');
 
 module.exports.run = async(bot,message,args) =>{
 //ID server DNH
