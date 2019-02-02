@@ -19,7 +19,7 @@ module.exports.run = function(bot, message, args) {
           .setColor('#0066ff')
           .setFooter('Không bao gồm các kí tự [] có trong usage')
           .addField(`Tác dụng: `,description)
-          .addField(`Cách sử dụng `,usage)
+          .addField(`Cách sử dụng `,usage);
         message.channel.send(help);
         } catch(e){
             message.channel.send('Không tìm thấy câu lệnh!');
