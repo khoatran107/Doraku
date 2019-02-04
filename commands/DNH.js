@@ -137,10 +137,13 @@ module.exports.help = {
   description: 'Dùng để tìm kiếm thông tin trên https://daynhauhoc.com',
   usage: `do.dnh [link] dùng để xem thông tin topic trên diễn đàn
 Ví dụ: do.dnh https://daynhauhoc.com/t/63869
+
 do.dnh search [tên bài viết] dùng để tìm kiếm bài viết trên daynhauhoc
 Ví dụ: do.dnh search Vào discord Daynhauhoc
+
 do.dnh user [tên thành viên] dùng để tìm kiếm thành viên trên daynhauhoc
 Ví dụ: do.dnh user trankhoa001
+
 do.dnh [daily/week/month/quarter/year/all] dùng để xem top topics
 Ví dụ: do.dnh daily`
 }  
