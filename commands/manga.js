@@ -15,7 +15,7 @@ module.exports.run = async(bot,message,args) =>{
 }
 async function manga(bot,message,args){
   const search = args.slice().join(" ");
-	if(!search) message.channel.send('Bạn phải nhập tên manga đã :v');
+	if(!search) return message.channel.send('Bạn phải nhập tên manga đã :v');
 //Tìm kiếm manga
 	kitsu.searchManga(search)
 		.then(result =>{
@@ -46,7 +46,7 @@ async function manga(bot,message,args){
 }
 module.exports.help = {
 	name : 'manga',
-  category: 'Fun',
+  category: 'Search',
   description: "Dùng để lấy thông tin manga cần tìm",
   usage: "do.manga [tên manga]"
 }
