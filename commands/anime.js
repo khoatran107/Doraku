@@ -15,7 +15,7 @@ module.exports.run = async(bot,message,args) =>{
 }
 async function anime(bot,message,args){
   const search = args.slice().join(" ");
-	if(!search) message.channel.send('Bạn phải nhập tên anime đã :v');
+	if(!search) return message.channel.send('Bạn phải nhập tên anime đã :v');
 //Tìm kiếm anime
 	kitsu.searchAnime(search)
 		.then(result =>{
@@ -45,7 +45,7 @@ async function anime(bot,message,args){
 }
 module.exports.help = {
 	name : 'anime',
-  category: 'Fun',
+  category: 'Search',
   description: "Dùng để lấy thông tin anime cần tìm",
   usage: "do.anime [tên anime]"
 }
