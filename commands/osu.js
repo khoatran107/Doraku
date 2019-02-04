@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const node_osu = require('node-osu');
 require("dotenv/config");
 const osu_api = process.env.osu_api_key;
-// Khoa vào link này để lấy osu api nhé: https://osu.ppy.sh/p/api
+
 const api = new node_osu.Api(osu_api,{
 	  notFoundAsError: true,
     completeScores: false 
@@ -45,7 +45,7 @@ async function osu(bot,message,args) {
 }
 module.exports.help ={
 	name: 'osu',
-  category: 'Fun',
+  category: 'Search',
   description: "Dùng để lấy thông tin của người chơi trong osu",
   usage: "do.osu [tên người chơi]"
 }
