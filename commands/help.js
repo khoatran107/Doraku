@@ -7,6 +7,7 @@ module.exports.run = function(bot, message, args) {
           .setColor('#0066ff')
           .addField('Info',`${bot.commands.filter(cmd => cmd.help.category === 'Info').map(cmd => `\`${cmd.help.name}\``).join(" ")} `)
           .addField('Fun',`${bot.commands.filter(cmd => cmd.help.category === 'Fun').map(cmd => `\`${cmd.help.name}\``).join(" ")} `)
+          .addField('Search',`${bot.commands.filter(cmd => cmd.help.category === 'Search').map(cmd => `\`${cmd.help.name}\``).join(" ")} `)
           .setFooter('Để kiểm tra công dụng của từng câu lệnh, sử dụng do.help <tên câu lệnh>')
         message.channel.send(help);
      } else {
