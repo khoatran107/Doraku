@@ -141,8 +141,8 @@ let generateTime = (hour,minute,second) =>{
       }
 }
 
-module.exports.config = {
-  command: 'play',
+module.exports.help = {
+  name: 'play',
   category: 'Music',
   description: "Dùng để phát nhạc",
   usage: "do.play [tên bài hát hoặc link]"
