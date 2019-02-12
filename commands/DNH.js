@@ -131,7 +131,7 @@ async function top(message,time,length){
 }
 module.exports.help = {
   name: 'dnh',
-  category: 'Search', 
+  category: 'Info', 
   description: 'Dùng để tìm kiếm thông tin trên https://daynhauhoc.com',
   usage: `do.dnh [link] dùng để xem thông tin topic trên diễn đàn
 Ví dụ: do.dnh https://daynhauhoc.com/t/63869
