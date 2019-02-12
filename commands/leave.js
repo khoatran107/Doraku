@@ -11,5 +11,5 @@ module.exports.help = {
    name: 'leave',
    category: 'Music',
    description: "Dùng để yêu cầu bot ra khỏi voice channel",
-   usage: ">>leave"
+   usage: "do.leave"
 }
