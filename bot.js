@@ -5,6 +5,9 @@ const bad_words_file = require('./badwords.json');
 const hit = require('./hitdrama');
 let bad_words = bad_words_file.bad_words;
 const prefix = botSettings.prefix;
+const active = new Map();
+//process.env.OWNER_ID
+const OID = '420487905014841354';
 
 const bot = new Discord.Client({disableEveryone : true});
 bot.commands = new Discord.Collection();
@@ -63,7 +66,11 @@ bot.on("message", async message => {
     hit.run(bot, message, args);
     if (!command.startsWith(prefix)) return;
     let cmd = bot.commands.get(command.slice(prefix.length));
-    if (cmd) cmd.run(bot, message, args);
+    let ops = {
+      ownerID: OID,
+      active: active
+    }
+    if (cmd) cmd.run(bot, message, args,ops);
 
 });
 
