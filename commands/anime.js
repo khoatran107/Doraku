@@ -2,9 +2,6 @@ const Discord = require('discord.js');
 require('dotenv/config');
 const Kitsu = require('kitsu.js');
 const kitsu = new Kitsu();
-const translate = require('translate');
-const yd_key = process.env.yd_key;
-
 module.exports.run = async(bot,message,args) =>{
 //ID server DNH
 	  if(message.guild.id === '420246254254030856'){
@@ -26,13 +23,11 @@ async function anime(bot,message,args){
 				return message.channel.send('Không tìm thấy anime cần tìm!');
 			}
 			let anime = result[0];
-			let des = translate(`${anime.synopsis.replace(/<[^>]*>/g, '').split('\n')[0]}`,
-								{ to: 'vi', engine: 'yandex', key: yd_key }).toString();
 			const embed = new Discord.RichEmbed()
 				.setTitle(anime.titles.romaji)
 				.setColor('#4d8ff9')
 				.setThumbnail(anime.posterImage.original)
-				.setDescription(des)
+				.setDescription(`${anime.synopsis.replace(/<[^>]*>/g, '').split('\n')[0]}`)
 				.addField(':flag_jp: Tiêu đề tiếng Nhật: ',anime.titles.japanese,true)
 				.addField(':page_with_curl: Thể loại: ',anime.showType,true)
 				.addField(':watch: Tình trạng: ',`từ **${anime.startDate}** đến **${anime.endDate ? anime.endDate : 'Đang hoàn thành'}**`,true)
