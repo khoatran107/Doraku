@@ -27,7 +27,7 @@ async function anime(bot,message,args){
 			}
 			let anime = result[0];
 			let des = translate(`${anime.synopsis.replace(/<[^>]*>/g, '').split('\n')[0]}`,
-								{ to: 'vi', engine: 'yandex', key: yd_key });
+								{ to: 'vi', engine: 'yandex', key: yd_key }).toString();
 			const embed = new Discord.RichEmbed()
 				.setTitle(anime.titles.romaji)
 				.setColor('#4d8ff9')
