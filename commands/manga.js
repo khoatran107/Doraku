@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 //npm i kitsu.js
-const kitsu = require('node-kitsu');
+const Kitsu = require('kitsu.js');
+const kitsu = new Kitsu();
 
 module.exports.run = async(bot,message,args) =>{
 //ID server DNH
@@ -14,13 +15,13 @@ module.exports.run = async(bot,message,args) =>{
     } else manga(bot,message,args);
 }
 async function manga(bot,message,args){
-  const search = args.slice().join(" ");
-	if(!search) message.channel.send('Bạn phải nhập tên manga đã :v');
-//Tìm kiếm manga
+ 	const search = args.slice().join(" ");
+	if(!search) return message.channel.send('Bạn phải nhập tên manga đã :v');
+
 	kitsu.searchManga(search)
 		.then(result =>{
 			if(result.length === 0) { 
-				return message.channel.send('Không tìm thấy manga!');
+				return message.channel.send('Không tìm thấy manga cần tìm!');
 			}
 			let manga = result[0];
 
@@ -40,8 +41,8 @@ async function manga(bot,message,args){
 			message.channel.send(Membed);
 		})
 		.catch((err)=> {
-			console.log(err);
-			message.channel.send('Không tìm thấy manga! '); 
+			console.error(err);
+			message.channel.send('Không tìm thấy manga cần tìm! '); 
 		});
 }
 module.exports.help = {
