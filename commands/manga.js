@@ -17,7 +17,7 @@ async function manga(bot,message,args){
   const search = args.slice().join(" ");
 	if(!search) message.channel.send('Bạn phải nhập tên manga đã :v');
 //Tìm kiếm manga
-	kitsu.searchManga(search)
+	kitsu.searchManga(search, 0)
 		.then(result =>{
 			if(result.length === 0) { 
 				return message.channel.send('Không tìm thấy manga!');
