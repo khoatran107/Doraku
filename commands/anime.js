@@ -26,12 +26,13 @@ async function anime(bot,message,args){
 				return message.channel.send('Không tìm thấy anime cần tìm!');
 			}
 			let anime = result[0];
-
+			let des = await translate(`${anime.synopsis.replace(/<[^>]*>/g, '').split('\n')[0]}`,
+								{ to: 'vi', engine: 'yandex', key: yd_key });
 			const embed = new Discord.RichEmbed()
 				.setTitle(anime.titles.romaji)
 				.setColor('#4d8ff9')
 				.setThumbnail(anime.posterImage.original)
-				.setDescription(await translate(`${anime.synopsis.replace(/<[^>]*>/g, '').split('\n')[0]}`, { to: 'vi', engine: 'yandex', key: yd_key }))
+				.setDescription(des)
 				.addField(':flag_jp: Tiêu đề tiếng Nhật: ',anime.titles.japanese,true)
 				.addField(':page_with_curl: Thể loại: ',anime.showType,true)
 				.addField(':watch: Tình trạng: ',`từ **${anime.startDate}** đến **${anime.endDate ? anime.endDate : 'Đang hoàn thành'}**`,true)
