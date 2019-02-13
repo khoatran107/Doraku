@@ -126,7 +126,7 @@ async function top(message,time,length){
      return message.channel.send(embed);
   } catch(e){
       message.channel.send('Có lỗi xảy ra, bạn vui lòng thử lại sau!');
-      console.log(e);
+      console.error(e);
   }
 }
 module.exports.help = {
