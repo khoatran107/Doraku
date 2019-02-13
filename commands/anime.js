@@ -31,7 +31,7 @@ async function anime(bot,message,args){
 				.setTitle(anime.titles.romaji)
 				.setColor('#4d8ff9')
 				.setThumbnail(anime.posterImage.original)
-				.setDescription(translate(`${anime.synopsis.replace(/<[^>]*>/g, '').split('\n')[0]}`, { to: 'vn', engine: 'yandex', key: yd_key }))
+				.setDescription(translate(`${anime.synopsis.replace(/<[^>]*>/g, '').split('\n')[0]}`, { to: 'vi', engine: 'yandex', key: yd_key }))
 				.addField(':flag_jp: Tiêu đề tiếng Nhật: ',anime.titles.japanese,true)
 				.addField(':page_with_curl: Thể loại: ',anime.showType,true)
 				.addField(':watch: Tình trạng: ',`từ **${anime.startDate}** đến **${anime.endDate ? anime.endDate : 'Đang hoàn thành'}**`,true)
