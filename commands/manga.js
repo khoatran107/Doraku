@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 //npm i kitsu.js
-const kitsu = require('node-kitsu');
+const Kitsu = require('kitsu.js');
+const kitsu = new Kitsu();
 
 module.exports.run = async(bot,message,args) =>{
 //ID server DNH
@@ -17,7 +18,7 @@ async function manga(bot,message,args){
   const search = args.slice().join(" ");
 	if(!search) message.channel.send('Bạn phải nhập tên manga đã :v');
 //Tìm kiếm manga
-	kitsu.searchManga(search, 0)
+	kitsu.searchManga(search)
 		.then(result =>{
 			if(result.length === 0) { 
 				return message.channel.send('Không tìm thấy manga!');
@@ -25,11 +26,11 @@ async function manga(bot,message,args){
 			let manga = result[0];
 
 			const Membed = new Discord.RichEmbed()
-				.setTitle(manga.titles.en)
+				.setTitle(manga.titles.romaji)
 				.setColor('#4d8ff9')
 				.setThumbnail(manga.posterImage.original)
 				.setDescription(`${manga.synopsis.replace(/<[^>]*>/g, '').split('\n')[0]}`)
-				.addField(':flag_jp: Tiêu đề tiếng Nhật: ',manga.titles.ja_jp,true)
+				.addField(':flag_jp: Tiêu đề tiếng Nhật: ',manga.titles.japanese,true)
 				.addField(':page_with_curl: Thể loại: ',manga.mangaType,true)
 				.addField(':watch: Tình trạng: ',`từ **${manga.startDate}** đến **${manga.endDate ? manga.endDate : 'Đang hoàn thành'}**`,true)
 				.addField(':newspaper: Số chapter: ',`**${manga.chapterCount ? manga.chapterCount : 'N/A'}**`,true)
