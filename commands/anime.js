@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 //npm i kitsu.js
-const kitsu = require('node-kitsu');
+const Kitsu = require('kitsu.js');
+const kitsu = new Kitsu();
 
 module.exports.run = async(bot,message,args) =>{
 //ID server DNH
@@ -14,9 +15,9 @@ module.exports.run = async(bot,message,args) =>{
     } else anime(bot,message,args);
 }
 async function anime(bot,message,args){
-  const search = args.slice().join(" ");
-	if(!search) message.channel.send('Bạn phải nhập tên anime đã :v');
-//Tìm kiếm anime
+  	const search = args.slice().join(" ");
+	if(!args[0]) return message.channel.send('Bạn phải nhập tên anime đã :v');
+
 	kitsu.searchAnime(search)
 		.then(result =>{
 			if(result.length === 0) { 
@@ -39,7 +40,7 @@ async function anime(bot,message,args){
 			message.channel.send(embed);
 		})
 		.catch((err)=> {
-			console.log(err);
+			console.error(err);
 			message.channel.send('Không tìm thấy anime! '); 
 		});
 }
