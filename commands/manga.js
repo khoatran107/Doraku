@@ -25,11 +25,11 @@ async function manga(bot,message,args){
 			let manga = result[0];
 
 			const Membed = new Discord.RichEmbed()
-				.setTitle(manga.titles.romaji)
+				.setTitle(manga.titles.en)
 				.setColor('#4d8ff9')
 				.setThumbnail(manga.posterImage.original)
 				.setDescription(`${manga.synopsis.replace(/<[^>]*>/g, '').split('\n')[0]}`)
-				.addField(':flag_jp: Tiêu đề tiếng Nhật: ',manga.titles.japanese,true)
+				.addField(':flag_jp: Tiêu đề tiếng Nhật: ',manga.titles.ja_jp,true)
 				.addField(':page_with_curl: Thể loại: ',manga.mangaType,true)
 				.addField(':watch: Tình trạng: ',`từ **${manga.startDate}** đến **${manga.endDate ? manga.endDate : 'Đang hoàn thành'}**`,true)
 				.addField(':newspaper: Số chapter: ',`**${manga.chapterCount ? manga.chapterCount : 'N/A'}**`,true)
