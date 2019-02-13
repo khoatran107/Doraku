@@ -26,7 +26,7 @@ async function anime(bot,message,args){
 				return message.channel.send('Không tìm thấy anime cần tìm!');
 			}
 			let anime = result[0];
-			let des = await translate(`${anime.synopsis.replace(/<[^>]*>/g, '').split('\n')[0]}`,
+			let des = translate(`${anime.synopsis.replace(/<[^>]*>/g, '').split('\n')[0]}`,
 								{ to: 'vi', engine: 'yandex', key: yd_key });
 			const embed = new Discord.RichEmbed()
 				.setTitle(anime.titles.romaji)
