@@ -45,7 +45,7 @@ bot.on("message", async message => {
     let command = messageArray[0];
     let args = messageArray.slice(1);
     
-    ///////////////////////////////////////////////
+    /*///////////////////////////////////////////////
     let tmsg = " " + message.content.toLowerCase() + " ";
     tmsg = tmsg.replace(/[`~!@#$%^&*()_|+\-=÷¿?;:'",.<>\{\}\[\]\\\/]/gi, ' ');
     if ((args.length===0)&&((tmsg.includes(' dm '))||(tmsg.includes(' đù ')))) {
@@ -59,7 +59,7 @@ bot.on("message", async message => {
         }
     }
     
-    /////////////////////////////////////////////////
+    /////////////////////////////////////////////////*/
     hit.run(bot, message, args);
     if (!command.startsWith(prefix)) return;
     let cmd = bot.commands.get(command.slice(prefix.length));
@@ -68,7 +68,7 @@ bot.on("message", async message => {
 });
 
 bot.login(process.env.token);
-
+/*
 function send_noti(message) {
     let ntfct1 = new Discord.RichEmbed()
         .setColor("#ff463d")
@@ -79,3 +79,4 @@ function send_noti(message) {
     message.react("🏴");
     return;
 }
+*/
